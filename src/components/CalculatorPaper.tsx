@@ -2,6 +2,7 @@ import * as React from 'react';
 import Paper from '@mui/material/Paper';
 
 import CalculatorTabs from './CalculatorTabs';
+import CalculatorInputFieldGrid from './CalculatorInputFieldGrid';
 
 export default function CalculatorPaper() {
   return (
@@ -20,6 +21,7 @@ export default function CalculatorPaper() {
           }}
     >
         <CalculatorTabs/>
+        <CalculatorInputFieldGrid/>
     </Paper>
 
   );

@@ -1,7 +1,8 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
+import { Box, Tabs, Tab, CardHeader } from '@mui/material';
+import PaidIcon from '@mui/icons-material/Paid';
+
+const lightGreen = "#69ffae";
 
 export default function CalculatorTabs() {
   const [value, setValue] = React.useState(0);
@@ -11,17 +12,31 @@ export default function CalculatorTabs() {
   };
 
   return (
-    <Box sx={{ width: '100%', mt: '2%' }}>
+    <Box sx={{ width: '100%' }}>
         <Tabs 
+            sx={{
+                'mt': '30px',
+                '.MuiTab-root': {
+                    color: 'white',
+                    borderRadius: '8px',
+                },
+                '.MuiTab-root.Mui-selected': {
+                    color: lightGreen,
+                  },
+                '.MuiTabs-indicator': {
+                    backgroundColor: lightGreen,
+                    borderRadius: '4px'
+                },
+            }}
             value={value} 
             onChange={handleChange} 
             centered
-            textColor="secondary"
         >
         <Tab label="NORMAL BET" />
         <Tab label="BONUS BET SNR" />
         <Tab label="BONUS BET SR" />
       </Tabs>
+
     </Box>
   );
 }
