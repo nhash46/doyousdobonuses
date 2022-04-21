@@ -6,7 +6,7 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Slider from '@mui/material/Slider';
 import { useState, useEffect } from 'react';
-import { layStakeBonusBetSNR } from '../functions/formulas';
+import { calcLiability, calcLayStakeBonusBetSNR } from '../functions/formulas';
 
 const lightGreen = "#69ffae";
 const darkGreen = '#bddbd0'
@@ -18,8 +18,8 @@ export default function CalculatorInputFieldGrid() {
     const [ backOdds, setBackOdds ] = useState(2);
     const [ layOdds, setLayOdds ] = useState(2.10);
     const [ layCommission, setLayCommission ] = useState(0.05);
-    const [ layStake, setLayStake ] = useState(0);
-    const [ liability, setLiability ] = useState(0);
+    const [ layStake, setLayStake ] = useState(calcLayStakeBonusBetSNR(backOdds, layOdds, layCommission, betStake));
+    const [ liability, setLiability ] = useState(calcLiability(layStake, layOdds));
 
     const handleBetStakeSliderChange = (event: Event, newValue: number | number[], activeThumb: number) => {
         setBetStake(Number(newValue));
@@ -57,10 +57,17 @@ export default function CalculatorInputFieldGrid() {
         setLiability(Number(event.target.value));
     };
 
+    const handleBackOddsGreaterThanLayOdds = ():void => {
+        if (backOdds > layOdds) {
+            setBackOdds(layOdds - 0.1);
+        }
+    };
 
     useEffect(() => {
 
-        setLayStake(layStakeBonusBetSNR(backOdds, layOdds, layCommission, betStake));
+        setLayStake(calcLayStakeBonusBetSNR(backOdds, layOdds, layCommission, betStake));
+        setLiability(calcLiability(layStake, layOdds));
+        handleBackOddsGreaterThanLayOdds();
 
     }, [betStake, backOdds, layOdds, layCommission, liability])
 
@@ -123,7 +130,7 @@ export default function CalculatorInputFieldGrid() {
                         label="Bet stake"
                         type="number"
                         InputLabelProps={{
-                            shrink: true
+                            shrink: true,
                         }}
                     />
                 </Grid>
@@ -138,6 +145,12 @@ export default function CalculatorInputFieldGrid() {
                 <Grid item xs={4}>
                     <TextField
                         value={backOdds}
+                        InputProps={{
+                            inputProps: {
+                                min: 0,
+                                max: layOdds
+                            }
+                        }}
                         onChange={handleBackOddsInputChange}
                         id="outlined-number"
                         label="Back odds"
@@ -150,6 +163,9 @@ export default function CalculatorInputFieldGrid() {
                 <Grid item xs={8}>
                     <Slider 
                         value={backOdds}
+                        step={0.1}
+                        min={0}
+                        max={layOdds}
                         onChange={handleBackOddsSliderChange}
                         defaultValue={50} 
                         aria-label="Default" 
@@ -172,6 +188,7 @@ export default function CalculatorInputFieldGrid() {
                     <Slider 
                         onChange={handleLayOddsSliderChange}
                         value={layOdds}
+                        min={0.1}
                         defaultValue={50} 
                         aria-label="Default" 
                         valueLabelDisplay="auto"
