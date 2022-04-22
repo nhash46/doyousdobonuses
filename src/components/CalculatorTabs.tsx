@@ -12,7 +12,12 @@ export default function CalculatorTabs() {
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx=
+        {{ 
+            mt: '-15%',
+            width: '100%',
+            height: '5%'
+        }}>
         <Tabs 
             sx={{
                 'mt': '30px',
