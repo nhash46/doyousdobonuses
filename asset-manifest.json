@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/doyousdobonuses/static/css/main.073c9b0a.css",
+    "main.js": "/doyousdobonuses/static/js/main.a0ca6886.js",
+    "static/js/787.fbc053fa.chunk.js": "/doyousdobonuses/static/js/787.fbc053fa.chunk.js",
+    "index.html": "/doyousdobonuses/index.html",
+    "main.073c9b0a.css.map": "/doyousdobonuses/static/css/main.073c9b0a.css.map",
+    "main.a0ca6886.js.map": "/doyousdobonuses/static/js/main.a0ca6886.js.map",
+    "787.fbc053fa.chunk.js.map": "/doyousdobonuses/static/js/787.fbc053fa.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.a0ca6886.js"
+  ]
+}
