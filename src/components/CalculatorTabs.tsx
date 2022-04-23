@@ -24,6 +24,7 @@ export default function CalculatorTabs() {
                 '.MuiTab-root': {
                     color: 'white',
                     borderRadius: '8px',
+                    paddng: '5% 1%'
                 },
                 '.MuiTab-root.Mui-selected': {
                     color: lightGreen,

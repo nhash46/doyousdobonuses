@@ -65,6 +65,7 @@ export default function CalculatorInputFieldGrid() {
     };
 
     const handleLayStakeLessThanZero = ():void => {
+        
         if (layStake < 0) {
             setLayStake(0);
         }
@@ -84,8 +85,8 @@ export default function CalculatorInputFieldGrid() {
         <Box 
             sx={{ 
                 flexGrow: 1,
-                'ml':'60px',
-                'mr':'60px',
+                'ml':'10%',
+                'mr':'10%',
                 'mt':'-3%',
                 '.Mui-focused': {
                     'color':lightGreen
