@@ -65,7 +65,7 @@ export default function CalculatorInputFieldGrid() {
     };
 
     const handleLayStakeLessThanZero = ():void => {
-        
+
         if (layStake < 0) {
             setLayStake(0);
         }
@@ -272,24 +272,90 @@ export default function CalculatorInputFieldGrid() {
                         }}
                     />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={3}>
                     <Typography
+                        variant='body2'
                         sx={{
                             color: lightGreen
                         }}
                     >
-                        Profit: <span
-                        >
-                            <Typography
-                                sx={{
-                                    color: 'white',
-                                    fontSize: 25,
-                                    fontWeight: 600
-                                }}
-                            >
-                                ${calcProfitBookieBonusBetSNR(backOdds, betStake, layOdds, layStake)}
-                            </Typography>
-                        </span>    
+                        Outcome
+                    </Typography>
+                </Grid>
+                <Grid item xs={3}>
+                    <Typography
+                        variant='body2'
+                        sx={{
+                            color: lightGreen
+                        }}
+                    >
+                        Bookie $
+                    </Typography>
+                </Grid>
+                <Grid item xs={3}>
+                    <Typography
+                        variant='body2'
+                        sx={{
+                            color: lightGreen
+                        }}
+                    >
+                        Betfair $
+                    </Typography>
+                </Grid>
+                <Grid item xs={3}>
+                    <Typography
+                        variant='body2'
+                        sx={{
+                            color: lightGreen
+                        }}
+                    >
+                        Guaranteed $
+                    </Typography>
+                </Grid>
+                <Grid item xs={3}>
+                    <Typography
+                        variant='body2'
+                        sx={{
+                            color: 'white',
+                            fontWeight: '600'
+                        }}
+                    >
+                        who cares
+                    </Typography>
+                </Grid>
+                <Grid item xs={3}>
+                    <Typography
+                        variant='body2'
+                        sx={{
+                            color: 'white',
+                            fontWeight: '600'
+                        }}
+                    >
+                        who cares
+                    </Typography>
+                </Grid>
+                <Grid item xs={3}>
+                    <Typography
+                        variant='body2'
+                        sx={{
+                            color: 'white',
+                            fontWeight: '600'
+                        }}
+                    >
+                        who cares
+                    </Typography>
+                </Grid>
+                <Grid item xs={3}>
+                    <Typography
+                        variant="h5"
+                        sx={{
+                            color: 'white',
+                            fontWeight: '600',
+                            fontSize: '30'
+
+                        }}
+                    >
+                        ${calcProfitBookieBonusBetSNR(backOdds, betStake, layOdds, layStake)}
                     </Typography>
                 </Grid>
             </Grid>
